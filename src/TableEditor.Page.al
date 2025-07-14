@@ -21,7 +21,6 @@ page 55999 "Table Editor"
                 field(TableNo; TableNo)
                 {
                     Caption = 'Table No.';
-                    ApplicationArea = All;
                     TableRelation = AllObjWithCaption."Object ID" where("Object Type" = const(Table));
 
                     trigger OnValidate()
@@ -48,7 +47,6 @@ page 55999 "Table Editor"
                 }
                 field(Filters; Filters)
                 {
-                    ApplicationArea = All;
                     Caption = 'Filters';
                     Editable = false;
                     MultiLine = true;
@@ -65,7 +63,6 @@ page 55999 "Table Editor"
                 }
                 field(Sorting; Sorting)
                 {
-                    ApplicationArea = All;
                     Caption = 'Sorting';
                     Editable = false;
                     MultiLine = true;
@@ -91,7 +88,6 @@ page 55999 "Table Editor"
                 }
                 field("No. of Records"; NoOfRecords)
                 {
-                    ApplicationArea = All;
                     Caption = 'No. of Records';
                     Editable = false;
 
@@ -104,35 +100,51 @@ page 55999 "Table Editor"
                 field(ShowCaptions; ShowCaptions)
                 {
                     Caption = 'Show Captions';
-                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
                         LoadColumns();
                     end;
                 }
+                group(MoreOptions)
+                {
+                    ShowCaption = false;
+                    Visible = MoreOptionsVisible;
+                    field(InsertTrigger; RunInsertTrigger)
+                    {
+                        Caption = 'Insert Trigger';
+                    }
+                    field(ModifyTrigger; RunModifyTrigger)
+                    {
+                        Caption = 'Modify Trigger';
+                    }
+                    field(DeleteTrigger; RunDeleteTrigger)
+                    {
+                        Caption = 'Delete Trigger';
+                    }
+                    field(ValidateTrigger; RunValidateTrigger)
+                    {
+                        Caption = 'Validate Trigger';
+                    }
+                }
                 field(CurrentField; ColumnCaptions[LastModifiedColumnID])
                 {
                     Caption = 'Current Field';
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field(CurrentValue; CurrentValue)
                 {
                     Caption = 'Current Value';
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field(CurrentRecID; Format(RecordRef.RecordId))
                 {
                     Caption = 'Current Record-ID';
-                    ApplicationArea = All;
                     Editable = false;
                 }
                 field(IsTemporary; IsTemporaryText)
                 {
                     Caption = 'Is Temporary';
-                    ApplicationArea = All;
                     ShowCaption = false;
                     Editable = false;
                 }
@@ -141,7 +153,6 @@ page 55999 "Table Editor"
             {
                 field(CodeField1; CodeFields[1])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[1];
                     Visible = Code1Visible;
 
@@ -157,7 +168,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField1; TextFields[1])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[1];
                     Visible = Text1Visible;
 
@@ -173,7 +183,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField1; IntegerFields[1])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[1];
                     Visible = Integer1Visible;
 
@@ -189,7 +198,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField1; DecimalFields[1])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[1];
                     Visible = Decimal1Visible;
                     DecimalPlaces = 0 : 25;
@@ -206,7 +214,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField1; BooleanFields[1])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[1];
                     Visible = Boolean1Visible;
 
@@ -222,7 +229,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField1; DateFields[1])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[1];
                     Visible = Date1Visible;
 
@@ -238,7 +244,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField1; DateTimeFields[1])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[1];
                     Visible = DateTime1Visible;
 
@@ -254,7 +259,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField1; TimeFields[1])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[1];
                     Visible = Time1Visible;
 
@@ -270,7 +274,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField2; CodeFields[2])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[2];
                     Visible = Code2Visible;
 
@@ -286,7 +289,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField2; TextFields[2])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[2];
                     Visible = Text2Visible;
 
@@ -302,7 +304,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField2; IntegerFields[2])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[2];
                     Visible = Integer2Visible;
 
@@ -318,7 +319,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField2; DecimalFields[2])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[2];
                     Visible = Decimal2Visible;
                     DecimalPlaces = 0 : 25;
@@ -335,7 +335,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField2; BooleanFields[2])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[2];
                     Visible = Boolean2Visible;
 
@@ -351,7 +350,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField2; DateFields[2])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[2];
                     Visible = Date2Visible;
 
@@ -367,7 +365,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField2; DateTimeFields[2])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[2];
                     Visible = DateTime2Visible;
 
@@ -383,7 +380,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField2; TimeFields[2])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[2];
                     Visible = Time2Visible;
 
@@ -399,7 +395,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField3; CodeFields[3])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[3];
                     Visible = Code3Visible;
 
@@ -415,7 +410,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField3; TextFields[3])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[3];
                     Visible = Text3Visible;
 
@@ -431,7 +425,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField3; IntegerFields[3])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[3];
                     Visible = Integer3Visible;
 
@@ -447,7 +440,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField3; DecimalFields[3])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[3];
                     Visible = Decimal3Visible;
                     DecimalPlaces = 0 : 25;
@@ -464,7 +456,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField3; BooleanFields[3])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[3];
                     Visible = Boolean3Visible;
 
@@ -480,7 +471,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField3; DateFields[3])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[3];
                     Visible = Date3Visible;
 
@@ -496,7 +486,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField3; DateTimeFields[3])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[3];
                     Visible = DateTime3Visible;
 
@@ -512,7 +501,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField3; TimeFields[3])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[3];
                     Visible = Time3Visible;
 
@@ -528,7 +516,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField4; CodeFields[4])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[4];
                     Visible = Code4Visible;
 
@@ -544,7 +531,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField4; TextFields[4])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[4];
                     Visible = Text4Visible;
 
@@ -560,7 +546,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField4; IntegerFields[4])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[4];
                     Visible = Integer4Visible;
 
@@ -576,7 +561,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField4; DecimalFields[4])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[4];
                     Visible = Decimal4Visible;
                     DecimalPlaces = 0 : 25;
@@ -593,7 +577,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField4; BooleanFields[4])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[4];
                     Visible = Boolean4Visible;
 
@@ -609,7 +592,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField4; DateFields[4])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[4];
                     Visible = Date4Visible;
 
@@ -625,7 +607,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField4; DateTimeFields[4])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[4];
                     Visible = DateTime4Visible;
 
@@ -641,7 +622,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField4; TimeFields[4])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[4];
                     Visible = Time4Visible;
 
@@ -657,7 +637,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField5; CodeFields[5])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[5];
                     Visible = Code5Visible;
 
@@ -673,7 +652,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField5; TextFields[5])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[5];
                     Visible = Text5Visible;
 
@@ -689,7 +667,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField5; IntegerFields[5])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[5];
                     Visible = Integer5Visible;
 
@@ -705,7 +682,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField5; DecimalFields[5])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[5];
                     Visible = Decimal5Visible;
                     DecimalPlaces = 0 : 25;
@@ -722,7 +698,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField5; BooleanFields[5])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[5];
                     Visible = Boolean5Visible;
 
@@ -738,7 +713,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField5; DateFields[5])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[5];
                     Visible = Date5Visible;
 
@@ -754,7 +728,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField5; DateTimeFields[5])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[5];
                     Visible = DateTime5Visible;
 
@@ -770,7 +743,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField5; TimeFields[5])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[5];
                     Visible = Time5Visible;
 
@@ -786,7 +758,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField6; CodeFields[6])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[6];
                     Visible = Code6Visible;
 
@@ -802,7 +773,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField6; TextFields[6])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[6];
                     Visible = Text6Visible;
 
@@ -818,7 +788,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField6; IntegerFields[6])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[6];
                     Visible = Integer6Visible;
 
@@ -834,7 +803,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField6; DecimalFields[6])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[6];
                     Visible = Decimal6Visible;
                     DecimalPlaces = 0 : 25;
@@ -851,7 +819,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField6; BooleanFields[6])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[6];
                     Visible = Boolean6Visible;
 
@@ -867,7 +834,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField6; DateFields[6])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[6];
                     Visible = Date6Visible;
 
@@ -883,7 +849,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField6; DateTimeFields[6])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[6];
                     Visible = DateTime6Visible;
 
@@ -899,7 +864,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField6; TimeFields[6])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[6];
                     Visible = Time6Visible;
 
@@ -915,7 +879,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField7; CodeFields[7])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[7];
                     Visible = Code7Visible;
 
@@ -931,7 +894,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField7; TextFields[7])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[7];
                     Visible = Text7Visible;
 
@@ -947,7 +909,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField7; IntegerFields[7])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[7];
                     Visible = Integer7Visible;
 
@@ -963,7 +924,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField7; DecimalFields[7])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[7];
                     Visible = Decimal7Visible;
                     DecimalPlaces = 0 : 25;
@@ -980,7 +940,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField7; BooleanFields[7])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[7];
                     Visible = Boolean7Visible;
 
@@ -996,7 +955,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField7; DateFields[7])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[7];
                     Visible = Date7Visible;
 
@@ -1012,7 +970,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField7; DateTimeFields[7])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[7];
                     Visible = DateTime7Visible;
 
@@ -1028,7 +985,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField7; TimeFields[7])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[7];
                     Visible = Time7Visible;
 
@@ -1044,7 +1000,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField8; CodeFields[8])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[8];
                     Visible = Code8Visible;
 
@@ -1060,7 +1015,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField8; TextFields[8])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[8];
                     Visible = Text8Visible;
 
@@ -1076,7 +1030,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField8; IntegerFields[8])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[8];
                     Visible = Integer8Visible;
 
@@ -1092,7 +1045,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField8; DecimalFields[8])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[8];
                     Visible = Decimal8Visible;
                     DecimalPlaces = 0 : 25;
@@ -1109,7 +1061,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField8; BooleanFields[8])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[8];
                     Visible = Boolean8Visible;
 
@@ -1125,7 +1076,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField8; DateFields[8])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[8];
                     Visible = Date8Visible;
 
@@ -1141,7 +1091,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField8; DateTimeFields[8])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[8];
                     Visible = DateTime8Visible;
 
@@ -1157,7 +1106,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField8; TimeFields[8])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[8];
                     Visible = Time8Visible;
 
@@ -1173,7 +1121,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField9; CodeFields[9])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[9];
                     Visible = Code9Visible;
 
@@ -1189,7 +1136,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField9; TextFields[9])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[9];
                     Visible = Text9Visible;
 
@@ -1205,7 +1151,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField9; IntegerFields[9])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[9];
                     Visible = Integer9Visible;
 
@@ -1221,7 +1166,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField9; DecimalFields[9])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[9];
                     Visible = Decimal9Visible;
                     DecimalPlaces = 0 : 25;
@@ -1238,7 +1182,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField9; BooleanFields[9])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[9];
                     Visible = Boolean9Visible;
 
@@ -1254,7 +1197,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField9; DateFields[9])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[9];
                     Visible = Date9Visible;
 
@@ -1270,7 +1212,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField9; DateTimeFields[9])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[9];
                     Visible = DateTime9Visible;
 
@@ -1286,7 +1227,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField9; TimeFields[9])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[9];
                     Visible = Time9Visible;
 
@@ -1302,7 +1242,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField10; CodeFields[10])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[10];
                     Visible = Code10Visible;
 
@@ -1318,7 +1257,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField10; TextFields[10])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[10];
                     Visible = Text10Visible;
 
@@ -1334,7 +1272,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField10; IntegerFields[10])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[10];
                     Visible = Integer10Visible;
 
@@ -1350,7 +1287,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField10; DecimalFields[10])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[10];
                     Visible = Decimal10Visible;
                     DecimalPlaces = 0 : 25;
@@ -1367,7 +1303,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField10; BooleanFields[10])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[10];
                     Visible = Boolean10Visible;
 
@@ -1383,7 +1318,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField10; DateFields[10])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[10];
                     Visible = Date10Visible;
 
@@ -1399,7 +1333,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField10; DateTimeFields[10])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[10];
                     Visible = DateTime10Visible;
 
@@ -1415,7 +1348,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField10; TimeFields[10])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[10];
                     Visible = Time10Visible;
 
@@ -1431,7 +1363,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField11; CodeFields[11])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[11];
                     Visible = Code11Visible;
 
@@ -1447,7 +1378,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField11; TextFields[11])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[11];
                     Visible = Text11Visible;
 
@@ -1463,7 +1393,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField11; IntegerFields[11])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[11];
                     Visible = Integer11Visible;
 
@@ -1479,7 +1408,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField11; DecimalFields[11])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[11];
                     Visible = Decimal11Visible;
                     DecimalPlaces = 0 : 25;
@@ -1496,7 +1424,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField11; BooleanFields[11])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[11];
                     Visible = Boolean11Visible;
 
@@ -1512,7 +1439,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField11; DateFields[11])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[11];
                     Visible = Date11Visible;
 
@@ -1528,7 +1454,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField11; DateTimeFields[11])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[11];
                     Visible = DateTime11Visible;
 
@@ -1544,7 +1469,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField11; TimeFields[11])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[11];
                     Visible = Time11Visible;
 
@@ -1560,7 +1484,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField12; CodeFields[12])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[12];
                     Visible = Code12Visible;
 
@@ -1576,7 +1499,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField12; TextFields[12])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[12];
                     Visible = Text12Visible;
 
@@ -1592,7 +1514,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField12; IntegerFields[12])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[12];
                     Visible = Integer12Visible;
 
@@ -1608,7 +1529,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField12; DecimalFields[12])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[12];
                     Visible = Decimal12Visible;
                     DecimalPlaces = 0 : 25;
@@ -1625,7 +1545,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField12; BooleanFields[12])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[12];
                     Visible = Boolean12Visible;
 
@@ -1641,7 +1560,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField12; DateFields[12])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[12];
                     Visible = Date12Visible;
 
@@ -1657,7 +1575,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField12; DateTimeFields[12])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[12];
                     Visible = DateTime12Visible;
 
@@ -1673,7 +1590,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField12; TimeFields[12])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[12];
                     Visible = Time12Visible;
 
@@ -1689,7 +1605,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField13; CodeFields[13])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[13];
                     Visible = Code13Visible;
 
@@ -1705,7 +1620,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField13; TextFields[13])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[13];
                     Visible = Text13Visible;
 
@@ -1721,7 +1635,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField13; IntegerFields[13])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[13];
                     Visible = Integer13Visible;
 
@@ -1737,7 +1650,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField13; DecimalFields[13])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[13];
                     Visible = Decimal13Visible;
                     DecimalPlaces = 0 : 25;
@@ -1754,7 +1666,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField13; BooleanFields[13])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[13];
                     Visible = Boolean13Visible;
 
@@ -1770,7 +1681,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField13; DateFields[13])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[13];
                     Visible = Date13Visible;
 
@@ -1786,7 +1696,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField13; DateTimeFields[13])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[13];
                     Visible = DateTime13Visible;
 
@@ -1802,7 +1711,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField13; TimeFields[13])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[13];
                     Visible = Time13Visible;
 
@@ -1818,7 +1726,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField14; CodeFields[14])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[14];
                     Visible = Code14Visible;
 
@@ -1834,7 +1741,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField14; TextFields[14])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[14];
                     Visible = Text14Visible;
 
@@ -1850,7 +1756,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField14; IntegerFields[14])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[14];
                     Visible = Integer14Visible;
 
@@ -1866,7 +1771,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField14; DecimalFields[14])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[14];
                     Visible = Decimal14Visible;
                     DecimalPlaces = 0 : 25;
@@ -1883,7 +1787,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField14; BooleanFields[14])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[14];
                     Visible = Boolean14Visible;
 
@@ -1899,7 +1802,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField14; DateFields[14])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[14];
                     Visible = Date14Visible;
 
@@ -1915,7 +1817,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField14; DateTimeFields[14])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[14];
                     Visible = DateTime14Visible;
 
@@ -1931,7 +1832,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField14; TimeFields[14])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[14];
                     Visible = Time14Visible;
 
@@ -1947,7 +1847,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField15; CodeFields[15])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[15];
                     Visible = Code15Visible;
 
@@ -1963,7 +1862,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField15; TextFields[15])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[15];
                     Visible = Text15Visible;
 
@@ -1979,7 +1877,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField15; IntegerFields[15])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[15];
                     Visible = Integer15Visible;
 
@@ -1995,7 +1892,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField15; DecimalFields[15])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[15];
                     Visible = Decimal15Visible;
                     DecimalPlaces = 0 : 25;
@@ -2012,7 +1908,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField15; BooleanFields[15])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[15];
                     Visible = Boolean15Visible;
 
@@ -2028,7 +1923,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField15; DateFields[15])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[15];
                     Visible = Date15Visible;
 
@@ -2044,7 +1938,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField15; DateTimeFields[15])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[15];
                     Visible = DateTime15Visible;
 
@@ -2060,7 +1953,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField15; TimeFields[15])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[15];
                     Visible = Time15Visible;
 
@@ -2076,7 +1968,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField16; CodeFields[16])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[16];
                     Visible = Code15Visible;
 
@@ -2092,7 +1983,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField16; TextFields[16])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[16];
                     Visible = Text16Visible;
 
@@ -2108,7 +1998,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField16; IntegerFields[16])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[16];
                     Visible = Integer16Visible;
 
@@ -2124,7 +2013,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField16; DecimalFields[16])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[16];
                     Visible = Decimal16Visible;
                     DecimalPlaces = 0 : 25;
@@ -2141,7 +2029,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField16; BooleanFields[16])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[16];
                     Visible = Boolean16Visible;
 
@@ -2157,7 +2044,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField16; DateFields[16])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[16];
                     Visible = Date16Visible;
 
@@ -2173,7 +2059,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField16; DateTimeFields[16])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[16];
                     Visible = DateTime16Visible;
 
@@ -2189,7 +2074,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField16; TimeFields[16])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[16];
                     Visible = Time16Visible;
 
@@ -2205,7 +2089,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField17; CodeFields[17])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[17];
                     Visible = Code17Visible;
 
@@ -2221,7 +2104,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField17; TextFields[17])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[17];
                     Visible = Text17Visible;
 
@@ -2237,7 +2119,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField17; IntegerFields[17])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[17];
                     Visible = Integer17Visible;
 
@@ -2253,7 +2134,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField17; DecimalFields[17])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[17];
                     Visible = Decimal17Visible;
                     DecimalPlaces = 0 : 25;
@@ -2270,7 +2150,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField17; BooleanFields[17])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[17];
                     Visible = Boolean17Visible;
 
@@ -2286,7 +2165,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField17; DateFields[17])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[17];
                     Visible = Date17Visible;
 
@@ -2302,7 +2180,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField17; DateTimeFields[17])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[17];
                     Visible = DateTime17Visible;
 
@@ -2318,7 +2195,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField17; TimeFields[17])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[17];
                     Visible = Time17Visible;
 
@@ -2334,7 +2210,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField18; CodeFields[18])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[18];
                     Visible = Code18Visible;
 
@@ -2350,7 +2225,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField18; TextFields[18])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[18];
                     Visible = Text18Visible;
 
@@ -2366,7 +2240,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField18; IntegerFields[18])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[18];
                     Visible = Integer18Visible;
 
@@ -2382,7 +2255,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField18; DecimalFields[18])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[18];
                     Visible = Decimal18Visible;
                     DecimalPlaces = 0 : 25;
@@ -2399,7 +2271,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField18; BooleanFields[18])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[18];
                     Visible = Boolean18Visible;
 
@@ -2415,7 +2286,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField18; DateFields[18])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[18];
                     Visible = Date18Visible;
 
@@ -2431,7 +2301,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField18; DateTimeFields[18])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[18];
                     Visible = DateTime18Visible;
 
@@ -2447,7 +2316,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField18; TimeFields[18])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[18];
                     Visible = Time18Visible;
 
@@ -2463,7 +2331,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField19; CodeFields[19])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[19];
                     Visible = Code19Visible;
 
@@ -2479,7 +2346,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField19; TextFields[19])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[19];
                     Visible = Text19Visible;
 
@@ -2495,7 +2361,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField19; IntegerFields[19])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[19];
                     Visible = Integer19Visible;
 
@@ -2511,7 +2376,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField19; DecimalFields[19])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[19];
                     Visible = Decimal19Visible;
                     DecimalPlaces = 0 : 25;
@@ -2528,7 +2392,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField19; BooleanFields[19])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[19];
                     Visible = Boolean19Visible;
 
@@ -2544,7 +2407,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField19; DateFields[19])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[19];
                     Visible = Date19Visible;
 
@@ -2560,7 +2422,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField19; DateTimeFields[19])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[19];
                     Visible = DateTime19Visible;
 
@@ -2576,7 +2437,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField19; TimeFields[19])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[19];
                     Visible = Time19Visible;
 
@@ -2592,7 +2452,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField20; CodeFields[20])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[20];
                     Visible = Code20Visible;
 
@@ -2608,7 +2467,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField20; TextFields[20])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[20];
                     Visible = Text20Visible;
 
@@ -2624,7 +2482,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField20; IntegerFields[20])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[20];
                     Visible = Integer20Visible;
 
@@ -2640,7 +2497,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField20; DecimalFields[20])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[20];
                     Visible = Decimal20Visible;
                     DecimalPlaces = 0 : 25;
@@ -2657,7 +2513,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField20; BooleanFields[20])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[20];
                     Visible = Boolean20Visible;
 
@@ -2673,7 +2528,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField20; DateFields[20])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[20];
                     Visible = Date20Visible;
 
@@ -2689,7 +2543,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField20; DateTimeFields[20])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[20];
                     Visible = DateTime20Visible;
 
@@ -2705,7 +2558,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField20; TimeFields[20])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[20];
                     Visible = Time20Visible;
 
@@ -2721,7 +2573,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField21; CodeFields[21])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[21];
                     Visible = Code21Visible;
 
@@ -2737,7 +2588,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField21; TextFields[21])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[21];
                     Visible = Text21Visible;
 
@@ -2753,7 +2603,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField21; IntegerFields[21])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[21];
                     Visible = Integer21Visible;
 
@@ -2769,7 +2618,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField21; DecimalFields[21])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[21];
                     Visible = Decimal21Visible;
                     DecimalPlaces = 0 : 25;
@@ -2786,7 +2634,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField21; BooleanFields[21])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[21];
                     Visible = Boolean21Visible;
 
@@ -2802,7 +2649,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField21; DateFields[21])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[21];
                     Visible = Date21Visible;
 
@@ -2818,7 +2664,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField21; DateTimeFields[21])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[21];
                     Visible = DateTime21Visible;
 
@@ -2834,7 +2679,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField21; TimeFields[21])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[21];
                     Visible = Time21Visible;
 
@@ -2850,7 +2694,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField22; CodeFields[22])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[22];
                     Visible = Code22Visible;
 
@@ -2866,7 +2709,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField22; TextFields[22])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[22];
                     Visible = Text22Visible;
 
@@ -2882,7 +2724,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField22; IntegerFields[22])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[22];
                     Visible = Integer22Visible;
 
@@ -2898,7 +2739,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField22; DecimalFields[22])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[22];
                     Visible = Decimal22Visible;
                     DecimalPlaces = 0 : 25;
@@ -2915,7 +2755,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField22; BooleanFields[22])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[22];
                     Visible = Boolean22Visible;
 
@@ -2931,7 +2770,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField22; DateFields[22])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[22];
                     Visible = Date22Visible;
 
@@ -2947,7 +2785,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField22; DateTimeFields[22])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[22];
                     Visible = DateTime22Visible;
 
@@ -2963,7 +2800,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField22; TimeFields[22])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[22];
                     Visible = Time22Visible;
 
@@ -2979,7 +2815,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField23; CodeFields[23])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[23];
                     Visible = Code23Visible;
 
@@ -2995,7 +2830,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField23; TextFields[23])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[23];
                     Visible = Text23Visible;
 
@@ -3011,7 +2845,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField23; IntegerFields[23])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[23];
                     Visible = Integer23Visible;
 
@@ -3027,7 +2860,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField23; DecimalFields[23])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[23];
                     Visible = Decimal23Visible;
                     DecimalPlaces = 0 : 25;
@@ -3044,7 +2876,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField23; BooleanFields[23])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[23];
                     Visible = Boolean23Visible;
 
@@ -3060,7 +2891,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField23; DateFields[23])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[23];
                     Visible = Date23Visible;
 
@@ -3076,7 +2906,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField23; DateTimeFields[23])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[23];
                     Visible = DateTime23Visible;
 
@@ -3092,7 +2921,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField23; TimeFields[23])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[23];
                     Visible = Time23Visible;
 
@@ -3108,7 +2936,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField24; CodeFields[24])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[24];
                     Visible = Code24Visible;
 
@@ -3124,7 +2951,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField24; TextFields[24])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[24];
                     Visible = Text24Visible;
 
@@ -3140,7 +2966,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField24; IntegerFields[24])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[24];
                     Visible = Integer24Visible;
 
@@ -3156,7 +2981,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField24; DecimalFields[24])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[24];
                     Visible = Decimal24Visible;
                     DecimalPlaces = 0 : 25;
@@ -3173,7 +2997,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField24; BooleanFields[24])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[24];
                     Visible = Boolean24Visible;
 
@@ -3189,7 +3012,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField24; DateFields[24])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[24];
                     Visible = Date24Visible;
 
@@ -3205,7 +3027,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField24; DateTimeFields[24])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[24];
                     Visible = DateTime24Visible;
 
@@ -3221,7 +3042,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField24; TimeFields[24])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[24];
                     Visible = Time24Visible;
 
@@ -3237,7 +3057,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField25; CodeFields[25])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[25];
                     Visible = Code25Visible;
 
@@ -3253,7 +3072,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField25; TextFields[25])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[25];
                     Visible = Text25Visible;
 
@@ -3269,7 +3087,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField25; IntegerFields[25])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[25];
                     Visible = Integer25Visible;
 
@@ -3285,7 +3102,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField25; DecimalFields[25])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[25];
                     Visible = Decimal25Visible;
                     DecimalPlaces = 0 : 25;
@@ -3302,7 +3118,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField25; BooleanFields[25])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[25];
                     Visible = Boolean25Visible;
 
@@ -3318,7 +3133,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField25; DateFields[25])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[25];
                     Visible = Date25Visible;
 
@@ -3334,7 +3148,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField25; DateTimeFields[25])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[25];
                     Visible = DateTime25Visible;
 
@@ -3350,7 +3163,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField25; TimeFields[25])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[25];
                     Visible = Time25Visible;
 
@@ -3366,7 +3178,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField26; CodeFields[26])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[26];
                     Visible = Code26Visible;
 
@@ -3382,7 +3193,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField26; TextFields[26])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[26];
                     Visible = Text26Visible;
 
@@ -3398,7 +3208,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField26; IntegerFields[26])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[26];
                     Visible = Integer26Visible;
 
@@ -3414,7 +3223,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField26; DecimalFields[26])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[26];
                     Visible = Decimal26Visible;
                     DecimalPlaces = 0 : 25;
@@ -3431,7 +3239,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField26; BooleanFields[26])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[26];
                     Visible = Boolean26Visible;
 
@@ -3447,7 +3254,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField26; DateFields[26])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[26];
                     Visible = Date26Visible;
 
@@ -3463,7 +3269,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField26; DateTimeFields[26])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[26];
                     Visible = DateTime26Visible;
 
@@ -3479,7 +3284,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField26; TimeFields[26])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[26];
                     Visible = Time26Visible;
 
@@ -3495,7 +3299,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField27; CodeFields[27])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[27];
                     Visible = Code27Visible;
 
@@ -3511,7 +3314,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField27; TextFields[27])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[27];
                     Visible = Text27Visible;
 
@@ -3527,7 +3329,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField27; IntegerFields[27])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[27];
                     Visible = Integer27Visible;
 
@@ -3543,7 +3344,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField27; DecimalFields[27])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[27];
                     Visible = Decimal27Visible;
                     DecimalPlaces = 0 : 25;
@@ -3560,7 +3360,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField27; BooleanFields[27])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[27];
                     Visible = Boolean27Visible;
 
@@ -3576,7 +3375,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField27; DateFields[27])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[27];
                     Visible = Date27Visible;
 
@@ -3592,7 +3390,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField27; DateTimeFields[27])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[27];
                     Visible = DateTime27Visible;
 
@@ -3608,7 +3405,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField27; TimeFields[27])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[27];
                     Visible = Time27Visible;
 
@@ -3624,7 +3420,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField28; CodeFields[28])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[28];
                     Visible = Code28Visible;
 
@@ -3640,7 +3435,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField28; TextFields[28])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[28];
                     Visible = Text28Visible;
 
@@ -3656,7 +3450,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField28; IntegerFields[28])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[28];
                     Visible = Integer28Visible;
 
@@ -3672,7 +3465,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField28; DecimalFields[28])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[28];
                     Visible = Decimal28Visible;
                     DecimalPlaces = 0 : 25;
@@ -3689,7 +3481,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField28; BooleanFields[28])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[28];
                     Visible = Boolean28Visible;
 
@@ -3705,7 +3496,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField28; DateFields[28])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[28];
                     Visible = Date28Visible;
 
@@ -3721,7 +3511,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField28; DateTimeFields[28])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[28];
                     Visible = DateTime28Visible;
 
@@ -3737,7 +3526,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField28; TimeFields[28])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[28];
                     Visible = Time28Visible;
 
@@ -3753,7 +3541,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField29; CodeFields[29])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[29];
                     Visible = Code29Visible;
 
@@ -3769,7 +3556,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField29; TextFields[29])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[29];
                     Visible = Text29Visible;
 
@@ -3785,7 +3571,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField29; IntegerFields[29])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[29];
                     Visible = Integer29Visible;
 
@@ -3801,7 +3586,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField29; DecimalFields[29])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[29];
                     Visible = Decimal29Visible;
                     DecimalPlaces = 0 : 25;
@@ -3818,7 +3602,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField29; BooleanFields[29])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[29];
                     Visible = Boolean29Visible;
 
@@ -3834,7 +3617,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField29; DateFields[29])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[29];
                     Visible = Date29Visible;
 
@@ -3850,7 +3632,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField29; DateTimeFields[29])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[29];
                     Visible = DateTime29Visible;
 
@@ -3866,7 +3647,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField29; TimeFields[29])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[29];
                     Visible = Time29Visible;
 
@@ -3882,7 +3662,6 @@ page 55999 "Table Editor"
                 }
                 field(CodeField30; CodeFields[30])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[30];
                     Visible = Code30Visible;
 
@@ -3898,7 +3677,6 @@ page 55999 "Table Editor"
                 }
                 field(TextField30; TextFields[30])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[30];
                     Visible = Text30Visible;
 
@@ -3914,7 +3692,6 @@ page 55999 "Table Editor"
                 }
                 field(IntegerField30; IntegerFields[30])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[30];
                     Visible = Integer30Visible;
 
@@ -3930,7 +3707,6 @@ page 55999 "Table Editor"
                 }
                 field(DecimalField30; DecimalFields[30])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[30];
                     Visible = Decimal30Visible;
                     DecimalPlaces = 0 : 25;
@@ -3947,7 +3723,6 @@ page 55999 "Table Editor"
                 }
                 field(BooleanField30; BooleanFields[30])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[30];
                     Visible = Boolean30Visible;
 
@@ -3963,7 +3738,6 @@ page 55999 "Table Editor"
                 }
                 field(DateField30; DateFields[30])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[30];
                     Visible = Date30Visible;
 
@@ -3979,7 +3753,6 @@ page 55999 "Table Editor"
                 }
                 field(DateTimeField30; DateTimeFields[30])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[30];
                     Visible = DateTime30Visible;
 
@@ -3995,7 +3768,6 @@ page 55999 "Table Editor"
                 }
                 field(TimeField30; TimeFields[30])
                 {
-                    ApplicationArea = All;
                     CaptionClass = '3,' + ColumnCaptions[30];
                     Visible = Time30Visible;
 
@@ -4020,7 +3792,6 @@ page 55999 "Table Editor"
             action(PreviousSet)
             {
                 Caption = 'Previous Set';
-                ApplicationArea = All;
                 Image = PreviousSet;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -4041,7 +3812,6 @@ page 55999 "Table Editor"
             action(NextSet)
             {
                 Caption = 'Next Set';
-                ApplicationArea = All;
                 Image = NextSet;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -4060,7 +3830,6 @@ page 55999 "Table Editor"
             action(EditMultipleLines)
             {
                 Caption = 'Edit Multiple Lines';
-                ApplicationArea = All;
                 Image = EditLines;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -4070,7 +3839,6 @@ page 55999 "Table Editor"
                 trigger OnAction()
                 var
                     TempTableEditor: Record "Table Editor" temporary;
-                    ConfigValidateManagement: Codeunit "Config. Validate Management";
                     RecordRefToUpdate: RecordRef;
                     SourceFieldRef: FieldRef;
                     FieldRef: FieldRef;
@@ -4107,7 +3875,6 @@ page 55999 "Table Editor"
             action(ExportToExcelAction)
             {
                 Caption = 'Export to Excel';
-                ApplicationArea = All;
                 Image = ExportToExcel;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -4122,7 +3889,6 @@ page 55999 "Table Editor"
             action(ToggleOptionsVisible)
             {
                 Caption = 'Show/Hide Options';
-                ApplicationArea = All;
                 Image = ToggleBreakpoint;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -4134,10 +3900,23 @@ page 55999 "Table Editor"
                     OptionsVisible := not OptionsVisible;
                 end;
             }
+            action(ToggleMoreOptionsVisible)
+            {
+                Caption = 'Show/Hide More Options';
+                Image = ToggleBreakpoint;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                begin
+                    MoreOptionsVisible := not MoreOptionsVisible;
+                end;
+            }
             action(GoToField)
             {
                 Caption = 'Go to Field';
-                ApplicationArea = All;
                 Image = GoTo;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -4170,6 +3949,10 @@ page 55999 "Table Editor"
         LastModifiedColumnID := 1;
         ShowCaptions := true;
         OptionsVisible := true;
+        RunInsertTrigger := true;
+        RunModifyTrigger := true;
+        RunDeleteTrigger := true;
+        RunValidateTrigger := true;
     end;
 
     trigger OnOpenPage()
@@ -4227,7 +4010,7 @@ page 55999 "Table Editor"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        RecordRef.Insert(true);
+        RecordRef.Insert(RunInsertTrigger);
         Rec."Record-Id" := RecordRef.RecordId;
     end;
 
@@ -4238,21 +4021,26 @@ page 55999 "Table Editor"
             RenameRequired := false;
         end;
         if ModifyRequired then begin
-            RecordRef.Modify(true);
+            RecordRef.Modify(RunModifyTrigger);
             ModifyRequired := false;
         end;
     end;
 
     trigger OnDeleteRecord(): Boolean
     begin
-        RecordRef.Delete(true);
+        RecordRef.Delete(RunDeleteTrigger);
     end;
 
     var
+        ConfigValidateManagement: Codeunit "Config. Validate Management";
         RecordRef: RecordRef;
         LastModifiedRecordID: RecordId;
         TableNo: Integer;
         ShowCaptions: Boolean;
+        RunInsertTrigger: Boolean;
+        RunModifyTrigger: Boolean;
+        RunDeleteTrigger: Boolean;
+        RunValidateTrigger: Boolean;
         Filters: Text;
         Sorting: Text;
         NoOfRecords: Integer;
@@ -4265,6 +4053,7 @@ page 55999 "Table Editor"
         NoOfFieldsMinusMaxColumns: Integer;
         IsTemporaryText: Text;
         OptionsVisible: Boolean;
+        MoreOptionsVisible: Boolean;
         CodeFields: array[30] of Code[2048];
         TextFields: array[30] of Text;
         IntegerFields: array[30] of BigInteger;
@@ -5221,11 +5010,13 @@ page 55999 "Table Editor"
 
     local procedure ValidateField(ColumnID: Integer)
     var
-        ConfigValidateManagement: Codeunit "Config. Validate Management";
         FieldRef: FieldRef;
     begin
         FieldRef := RecordRef.FieldIndex(ColumnID + Offset);
-        ValidateFieldValue(FieldRef, ColumnID);
+        if RunValidateTrigger then
+            ValidateFieldValue(FieldRef, ColumnID)
+        else
+            AssignFieldValue(FieldRef, ColumnID);
         if ConfigValidateManagement.IsKeyField(RecordRef.Number, FieldRef.Number) then
             RenameRequired := true
         else
@@ -5238,8 +5029,6 @@ page 55999 "Table Editor"
     end;
 
     local procedure ValidateFieldValue(var FieldRef: FieldRef; ColumnID: Integer)
-    var
-        ConfigValidateManagement: Codeunit "Config. Validate Management";
     begin
         case FieldRef.Type of
             FieldType::Integer, FieldType::BigInteger:
@@ -5260,6 +5049,30 @@ page 55999 "Table Editor"
                 FieldRef.Validate(BooleanFields[ColumnID]);
             else
                 ConfigValidateManagement.EvaluateValueWithValidate(FieldRef, TextFields[ColumnID], false);
+        end;
+    end;
+
+    local procedure AssignFieldValue(var FieldRef: FieldRef; ColumnID: Integer)
+    begin
+        case FieldRef.Type of
+            FieldType::Integer, FieldType::BigInteger:
+                FieldRef.Value := IntegerFields[ColumnID];
+            FieldType::Decimal:
+                FieldRef.Value := DecimalFields[ColumnID];
+            FieldType::Code:
+                FieldRef.Value := CodeFields[ColumnID];
+            FieldType::Text:
+                FieldRef.Value := TextFields[ColumnID];
+            FieldType::Date:
+                FieldRef.Value := DateFields[ColumnID];
+            FieldType::DateTime:
+                FieldRef.Value := DateTimeFields[ColumnID];
+            FieldType::Time:
+                FieldRef.Value := TimeFields[ColumnID];
+            FieldType::Boolean:
+                FieldRef.Value := BooleanFields[ColumnID];
+            else
+                ConfigValidateManagement.EvaluateValue(FieldRef, TextFields[ColumnID], false);
         end;
     end;
 
